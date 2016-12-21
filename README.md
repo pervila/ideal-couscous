@@ -1,3 +1,3 @@
 # ideal-couscous
 
-Testing gpg signing with github.
+Testing GPG signing with github.
