@@ -24,7 +24,7 @@ for func in GET POST PUT DELETE; do
     --resource-id ${res_id} \
     --http-method $func \
     --type AWS \
-    --integration-http-method $func \
+    --integration-http-method POST  \
     --uri arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:${acc_id}:function:TaskList${func}/invocations
 
   aws apigateway put-method-response \
