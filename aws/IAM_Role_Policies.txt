@@ -1,3 +1,26 @@
+# basic LambdaPolicies
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Action":"logs:CreateLogGroup",
+         "Resource":"arn:aws:logs:eu-west-1:312445988018:*"
+      },
+      {
+         "Effect":"Allow",
+         "Action":[
+            "logs:CreateLogStream",
+            "logs:PutLogEvents"
+         ],
+         "Resource":[
+            "arn:aws:logs:eu-west-1:312445988018:log-group:[[logGroups]]:*"
+         ]
+      }
+   ]
+}
+
+# taskListGet
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -14,6 +37,7 @@
 }
 
 
+# taskListAdd
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -27,20 +51,24 @@
   ]
 }
 
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "dynamodb:UpdateItem"
-      ],
-      "Effect": "Allow",
-      "Resource": "arn:aws:dynamodb:eu-west-1:312445988018:table/taskListTable"
-    }
-  ]
+# taskListUpdate
+Show Policy
+ {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:dynamodb:eu-west-1:312445988018:table/taskListTable"
+        }
+    ]
 }
 
 
+# taskListDelete
 {
     "Version": "2012-10-17",
     "Statement": [
