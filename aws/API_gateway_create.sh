@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 acc_id=312445988018
 
@@ -6,7 +7,7 @@ api_id=$(aws apigateway create-rest-api \
     --name TaskList | grep '"id"' | cut -d '"' -f 4)
 
 root_id=$(aws apigateway get-resources \
-    --rest-api-id | grep '"id"' | cut -d '"' -f 4)
+    --rest-api-id ${api_id} | grep '"id"' | cut -d '"' -f 4)
 
 res_id=$(aws apigateway create-resource \
     --rest-api-id ${api_id} \
