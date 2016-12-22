@@ -19,14 +19,16 @@ done
 aws apigateway create-deployment --rest-api-id npfisvw5ya --stage-name prod
 
 for func in GET POST PUT DELETE; do
-  aws lambda add-permission --function-name TaskList${func} \
-    --statement-id apigateway-test-2
-    --action lambda:InvokeFunction
-    --principal apigateway.amazonaws.com
-    --source-arn arn:aws:execute-api:us-east-1:312445988018:npfisvw5ya/*/${func}/TaskListManager
-  aws lambda add-permission --function-name TaskList${func} \
-    --statement-id apigateway-prod-2
-    --action lambda:InvokeFunction
-    --principal apigateway.amazonaws.com
-    --source-arn arn:aws:execute-api:us-east-1:312445988018:npfisvw5ya/prod/${func}/TaskListManager
+  aws lambda add-permission \
+    --function-name TaskList${func} \
+    --statement-id apigateway-test-2 \
+    --action lambda:InvokeFunction \
+    --principal apigateway.amazonaws.com \
+    --source-arn "arn:aws:execute-api:us-east-1:312445988018:npfisvw5ya/*/${func}/TaskListManager"
+  aws lambda add-permission \
+    --function-name TaskList${func} \
+    --statement-id apigateway-prod-2 \
+    --action lambda:InvokeFunction \
+    --principal apigateway.amazonaws.com \
+    --source-arn "arn:aws:execute-api:us-east-1:312445988018:npfisvw5ya/prod/${func}/TaskListManager"
 done
