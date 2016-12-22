@@ -1,4 +1,9 @@
-# basic LambdaPolicies
+#
+# The idea is to assign the lambdaLoggingBasic policy plus one of the taskList*
+# policies to each role, then assign that role in lambda_functions_create.sh
+#
+
+# lambdaLoggingBasic
 {
    "Version":"2012-10-17",
    "Statement":[

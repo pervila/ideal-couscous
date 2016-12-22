@@ -1,16 +1,17 @@
 #!/bin/bash
 
 acc_id=312445988018
-api_id=zxax1i0knb
-res_id=etev6x
 
-aws apigateway create-rest-api \
-    --name TaskList
+api_id=$(aws apigateway create-rest-api \
+    --name TaskList | grep '"id"' | cut -d '"' -f 4)
 
-aws apigateway create-resource \
+root_id=$(aws apigateway get-resources \
+    --rest-api-id | grep '"id"' | cut -d '"' -f 4)
+
+res_id=$(aws apigateway create-resource \
     --rest-api-id ${api_id} \
-    --parent-id op2z99xtod \
-    --path-part TaskListManager
+    --parent-id ${root_id} \
+    --path-part TaskListManager | grep '"id"' | cut -d '"' -f 4)
 
 for func in GET POST PUT DELETE; do 
   aws apigateway put-method \
