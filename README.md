@@ -40,3 +40,6 @@ GET parameters are not correctly mapped to the TaskListGET lambda. There's a
 tutorial for the mappings, but it seems outdated(?).
 
 The daily lambda has not been implemented yet.
+
+Using a Serverless framework, e.g., would make development much more enjoyable:
+https://github.com/serverless/serverless
