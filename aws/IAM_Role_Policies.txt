@@ -1,0 +1,55 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "dynamodb:GetItem",
+                "dynamodb:Query",
+                "dynamodb:Scan"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:dynamodb:eu-west-1:312445988018:table/taskListTable"
+        }
+    ]
+}
+
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "dynamodb:PutItem"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:dynamodb:eu-west-1:312445988018:table/taskListTable"
+    }
+  ]
+}
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "dynamodb:UpdateItem"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:dynamodb:eu-west-1:312445988018:table/taskListTable"
+    }
+  ]
+}
+
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "dynamodb:DeleteItem"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:dynamodb:eu-west-1:312445988018:table/taskListTable"
+        }
+    ]
+}
